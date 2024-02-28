@@ -61,5 +61,6 @@ def print_transactions(transactions):
     for transaction in transactions:
         print(f"{transaction.get('date')} {transaction.get('description')}")
         print(f"{transaction.get('from')} -> {transaction.get('to')}")
-        print(f"{transaction.get('operationAmount')['amount']} {transaction.get('operationAmount')['currency']['name']}")
-        print("/n")
+        print(f"{transaction.get('operationAmount').get('amount')} {transaction.get('operationAmount').get('currency').get('name')}")
+        print("\n")
+
