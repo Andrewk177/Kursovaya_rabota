@@ -8,7 +8,7 @@ import json
 def test_load_transactions(tmp_path):
     test_data = [
         {"id": 1, "state": "EXECUTED"},
-        {"id": 2, "state": "PENDING"},
+        {"id": 2, "state": "CANCELED"},
         {"id": 3, "state": "EXECUTED"}
     ]
     file_path = tmp_path / "test_data.json"
@@ -49,18 +49,19 @@ def test_print_transactions(capsys):
             "description": "Transfer",
             "from": "5678 1234 9012 3456",
             "to": "5432 9876 1098 7654",
-            "operationAmount": {"amount": 50, "currency": {"name": "EUR"}}
+            "operationAmount": {"amount": 50, "currency": {"name": "USD"}}
         }
     ]
     expected_output = [
         "2022-01-15 Payment",
         "1234 5678 9012 3456 -> 9876 5432 1098 7654",
         "100 USD",
-        "/n",
+        '',
+        '',
         "2022-01-10 Transfer",
         "5678 1234 9012 3456 -> 5432 9876 1098 7654",
-        "50 EUR",
-        "/n"
+        "50 USD",
+
     ]
 
     print_transactions(transactions)
