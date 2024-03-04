@@ -28,7 +28,7 @@ def hidden_number(card_or_account_number):
         splited_number.append(masked_number)
     else:
         number_for_masking = splited_number.pop()
-        masked_number = f"{number_for_masking[:6] + ' ** **** ' + number_for_masking[-4:]}"
+        masked_number = f"{number_for_masking[:4] + ' ** **** ' + number_for_masking[-4:]}"
         splited_number.append(masked_number)
     return " ".join(splited_number)
 
